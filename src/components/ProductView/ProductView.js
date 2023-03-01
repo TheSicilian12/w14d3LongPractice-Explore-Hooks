@@ -8,6 +8,7 @@ function ProductView({ products }) {
 
   // TODO: Replace with state variable
   const [sideOpen, setSideOpen] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState(false);
 
   return (
     <div className="product-view">
@@ -18,7 +19,9 @@ function ProductView({ products }) {
             <ProductListItem
               key={item.id}
               product={item}
-              onClick={() => console.log('SELECT PRODUCT', item)}
+              onClick={() => setSelectedProduct(item) }
+              // onClick={() => <ProductDetails product={item} visible/>}
+
             />
           )}
         </div>
@@ -30,7 +33,7 @@ function ProductView({ products }) {
             {sideOpen ? '>' : '<'}
           </div>
         </div>
-        <ProductDetails visible={sideOpen} />
+        <ProductDetails product={selectedProduct} visible={sideOpen} />
       </div>
     </div>
   );
