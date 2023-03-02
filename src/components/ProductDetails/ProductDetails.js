@@ -1,11 +1,11 @@
 import React from 'react'
-
+import useEffect from 'react'
 function ProductDetails({ product, visible }) {
   console.log(product)
   console.log(visible)
 
   if (!visible) return null
-  
+
   if (!product) return (
     <div className="product-details">
       <p className="product-info">Our Products</p>
